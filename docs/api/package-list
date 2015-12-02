@@ -1,0 +1,16 @@
+com.digitalpebble.storm.crawler
+com.digitalpebble.storm.crawler.bolt
+com.digitalpebble.storm.crawler.filtering
+com.digitalpebble.storm.crawler.filtering.basic
+com.digitalpebble.storm.crawler.filtering.depth
+com.digitalpebble.storm.crawler.filtering.host
+com.digitalpebble.storm.crawler.filtering.regex
+com.digitalpebble.storm.crawler.filtering.robots
+com.digitalpebble.storm.crawler.indexing
+com.digitalpebble.storm.crawler.parse
+com.digitalpebble.storm.crawler.parse.filter
+com.digitalpebble.storm.crawler.persistence
+com.digitalpebble.storm.crawler.protocol
+com.digitalpebble.storm.crawler.protocol.httpclient
+com.digitalpebble.storm.crawler.spout
+com.digitalpebble.storm.crawler.util
