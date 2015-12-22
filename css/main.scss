@@ -1,0 +1,218 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+// Charset
+@charset "utf-8";
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,600,300italic,600italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono);
+
+
+// Vars
+$colour-brand: #BE6551;
+$colour-black: #000;
+$colour-white: #fff;
+$color-light-grey: #e5e5e5;
+
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+}
+
+// Extends
+
+.row {
+	max-width:900px;
+	margin:0 auto;
+	&:after {
+		@extend .clear;
+	}
+}
+
+.row-col {
+	padding:0 40px;
+}
+
+.col {
+	padding:0 40px;
+	float:left;
+}
+
+.col--half {
+	width:50%;
+}
+
+.clear {
+	content:"";
+	display:table;
+	clear:both;
+}
+
+body {
+	background:$colour-white;
+	color:$colour-black;
+	font:normal 15px/23px "ubuntu",sans-serif;
+}
+
+a {
+	color:$colour-brand;
+	text-decoration:none;
+}
+
+.site-header {
+	background:#fff;
+	text-align:center;
+	&:after {
+		@extend .clear;
+	}
+}
+
+.site-header__wrap {
+	@extend .row;
+}
+
+.site-header__logo {
+	margin:30px auto;
+	width:100%;
+	img {
+		max-height: 200px;
+		max-width:100%;
+	}
+}
+
+.site-nav {
+	background:$colour-black;
+	font-size:0;
+	text-align:center;
+	margin:0 0 40px 0;
+	a {
+		color:#fff;
+	}
+	ul {
+		@extend .row;
+	}
+	li {
+		display: inline-block;
+		border-right:solid 1px rgba(255,255,255,0.25);
+		&:first-child {
+			border-left:solid 1px rgba(255,255,255,0.25);
+		}
+	}
+	a {
+		display: block;
+		padding:9px 30px;
+		font-size:15px;
+		@media screen and (max-width:900px) {
+			padding:9px 15px;
+		}
+	}
+}
+
+.home .site-nav li:nth-child(1) a {
+	background:$colour-brand;
+}
+
+.getting-started .site-nav li:nth-child(4) a {
+	background:$colour-brand;
+}
+
+.docs .site-nav li:nth-child(5) a {
+	background:$colour-brand;
+}
+
+.faq .site-nav li:nth-child(6) a {
+	background:$colour-brand;
+}
+
+.used-by .site-nav li:nth-child(7) a {
+	background:$colour-brand;
+}
+
+main {
+	h1,h2,h3 {
+		line-height:1.5em;
+		font-weight: bold;
+	}
+	h1 {
+		font-size:1.5rem;
+	}
+	h2 {
+		font-size:1.25rem;
+		margin:0 0 30px 0;
+		border-bottom:solid 1px #ddd;
+		padding:0 0 5px 0;
+	}
+	p {
+		margin:0 0 30px 0;
+	}
+	ul,ol {
+		margin:0 0 30px 18px;
+	}
+}
+
+.page-title {
+	background:$colour-brand;
+	color:#fff;
+	padding:30px 0;
+	margin:-40px 0 40px 0;
+	text-align:center;
+	h1 {
+		@extend .row;
+		@extend .row-col;
+	}
+}
+
+pre {
+	margin:0 0 30px 0;
+	background:$color-light-grey;
+	padding:15px 20px;
+	overflow:scroll;
+	font-family:"ubuntu mono",monospaced;
+}
+
+.used-by-panel {
+	box-shadow:inset 0 2px 2px rgba(0,0,0,0.1);
+	text-align:center;
+	border:solid 1px rgba(0,0,0,0.1);
+	margin:20px 0 60px 0;
+	padding:30px 30px 0 30px;
+	border-radius:5px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7f7f7+0,ffffff+100 */
+	background: rgb(247,247,247); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(247,247,247,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(247,247,247,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(247,247,247,1) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	img {
+		max-width:150px;
+		margin:0 20px 40px 15px;
+	}
+	h2 {
+		border:0;
+		color:$colour-black;
+	}
+}
+
+.github-info {
+	text-align:center;
+	background:$colour-brand;
+	padding:20px 0 15px;
+	* {
+		text-align: center;
+	}
+}
+
+.site-footer {
+	background:$colour-black;
+	color:$colour-white;
+	text-align:center;
+	padding:15px 0;
+	a {
+		color:$colour-white;
+		text-decoration: underline;
+	}
+}
