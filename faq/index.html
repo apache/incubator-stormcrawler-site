@@ -4,5 +4,39 @@ slug: faq
 ---
 
 <div class="row row-col">
-  <h1>Coming soon</h1>
+  <h1>FAQ</h1>
+
+ <p><strong>Q: Topologies? Spouts? Bolts? I am confused!</strong></p>
+
+  <p>A: Probably worth having a look at Apache Storm first. The <a href="http://storm.apache.org/tutorial.html">tutorial</a> and <a href="http://storm.apache.org/documentation/Concepts.html">concept</a> pages are good starting points.</p>
+
+  <p><strong>Q: Do I need a Storm cluster to run StormCrawler?</strong></p>
+
+  <p>A: No. It can run in local mode and will just use the Storm libraries as dependencies. It makes sense to install Storm in pseudo-distributed mode though so that you can use its UI to monitor the topologies.</p>
+
+  <p><strong>Q: Why Apache Storm?</strong></p>
+
+  <p>A: TODO </p>
+
+  <p><strong>Q: How fast is StormCrawler?</strong></p>
+
+  <p>A: This depends mainly on the diversity of hostnames as well as your politeness settings. For instance, if you have 1M URLs from the same host and have set a delay of 1 sec between request then the best you'll be able to do is 86400 pages per day. In practice this would be less than that as the time needed for fetching the content (which itself depends on your network and how large the documents are), parsing and indexing it etc...  This is true of any crawler, not just StormCrawler.</p>
+
+  <p><strong>Q: Speaking of which, why should I use it instead of, say, Apache Nutch?</strong></p>
+
+  <p>A: TODO but for now let me just mention the <a href="http://digitalpebble.blogspot.co.uk/2015/09/index-web-with-aws-cloudsearch.html">tutorial</a> on using Nutch and SC for indexing with Cloudsearch, it should give some idea of how they compare.</p>
+
+  <p><strong>Q: Do I need some sort of external storage? And if so, then what?</strong></p>
+
+  <p>A: Yes, you'll need to store the URLs to fetch somewhere. The type of the storage to use depends on the nature of your crawl. If your crawl is not recursive i.e. you just want to process specific pages and/or won't discover new pages through more than one path, then you could use messaging queues like <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://aws.amazon.com/sqs/">AWS SQS</a> or <a href="http://kafka.apache.org">Apache Kafka</a>. All you'll need is a Spout implementation that can read from them and generate Tuples for the crawl topology. Luckily there are many existing resources you can leverage. You might even find that the <a href="https://github.com/DigitalPebble/storm-crawler/blob/master/core/src/main/java/com/digitalpebble/storm/crawler/spout/FileSpout.java">FileSpout</a> is all you need. An important consideration with queues is that you might want to bucket the URLs to fetch per host / domain or IP into separate queues and have one instance of the Spout per queue. This way you'll get a good diversity of URLs down the topology and optimal performance.</p>
+  <p>If your crawl is recursive and there is a possibility that URLs which are already known are discovered multiple times, then a queue won't help as it would add the same URL to the queue every time it is discovered. This would be very inefficient. Instead you should use a storage where the keys are unique, like for instance a relational database. StormCrawler has several resources you can use in the <a href="https://github.com/DigitalPebble/storm-crawler/tree/master/external">external modules</a> such as one for SOLR, Elasticsearch or SQL.</p>
+  <p>The advantage of using StormCrawler is that is it both modular and flexible. You can plug it to pretty much any storage you want.</p>
+
+  <p><strong>Q: Is StormCrawler polite?</strong></p>
+  <p>A: The <a href="www.robotstxt.org/">robots.txt</a> protocol is supported and the fetchers are configured to have a <a href="https://github.com/DigitalPebble/storm-crawler/blob/master/core/src/main/resources/crawler-default.yaml#L6">delay</a> between calls to the same hostname or domain. However like with every tool, it is down to how people use it.</p>
+
+  <p><strong>Q: When do I know when a crawl is finished?</strong></p>
+  <p>A: This is actually not straightforward. Storm topologies are designed to run continuously and there is no standard mechanism to determine when they should be terminated. Unless you implement a bespoke way of terminating the topology, you'll need to keep an eye on the progress of the crawl and stop it manually.</p>
+
+
 </div>
