@@ -8,7 +8,7 @@ slug: faq
   <br>
   <p><strong>Q: Topologies? Spouts? Bolts? I am confused!</strong></p>
 
-  <p>A: Probably worth having a look at Apache Storm first. The <a href="http://storm.apache.org/tutorial.html">tutorial</a> and <a href="http://storm.apache.org/documentation/Concepts.html">concept</a> pages are good starting points.</p>
+  <p>A: Probably worth having a look at Apache Storm first. The <a href="http://storm.apache.org/releases/current/Tutorial.html">tutorial</a> and <a href="http://storm.apache.org/documentation/Concepts.html">concept</a> pages are good starting points.</p>
 
   <p><strong>Q: Do I need a Storm cluster to run StormCrawler?</strong></p>
 
@@ -33,7 +33,7 @@ slug: faq
   <p>The advantage of using StormCrawler is that is it both modular and flexible. You can plug it to pretty much any storage you want.</p>
 
   <p><strong>Q: Is StormCrawler polite?</strong></p>
-  <p>A: The <a href="www.robotstxt.org/">robots.txt</a> protocol is supported and the fetchers are configured to have a <a href="https://github.com/DigitalPebble/storm-crawler/blob/master/core/src/main/resources/crawler-default.yaml#L6">delay</a> between calls to the same hostname or domain. However like with every tool, it is down to how people use it.</p>
+  <p>A: The <a href="http://www.robotstxt.org/">robots.txt</a> protocol is supported and the fetchers are configured to have a <a href="https://github.com/DigitalPebble/storm-crawler/blob/master/core/src/main/resources/crawler-default.yaml#L6">delay</a> between calls to the same hostname or domain. However like with every tool, it is down to how people use it.</p>
 
   <p><strong>Q: When do I know when a crawl is finished?</strong></p>
   <p>A: This is actually not straightforward. Storm topologies are designed to run continuously and there is no standard mechanism to determine when they should be terminated. Unless you implement a bespoke way of terminating the topology, you'll need to keep an eye on the progress of the crawl and stop it manually.</p>
