@@ -10,8 +10,8 @@ title: StormCrawler
 email: site@stormcrawler.net
 description: > # this means to ignore newlines until "baseurl:"
  StormCrawler is collection of resources for building low-latency, scalable web crawlers on Apache Storm
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "http://stormcrawler.net" # the base hostname & protocol for your site
+baseurl: "/storm-crawler" # the subpath of your site, e.g. /blog
+url: "http://digitalpebble.com" # the base hostname & protocol for your site
 twitter_username: stormcrawlerapi
 github_username:  digitalpebble
 
