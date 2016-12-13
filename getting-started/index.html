@@ -1,6 +1,7 @@
 ---
 layout: default
 slug: getting-started
+title: Getting started with StormCrawler
 ---
 
 <div class="row row-col">
@@ -25,12 +26,8 @@ slug: getting-started
  <p>Of course this topology is very primitive and its purpose is merely to give you an idea of how StormCrawler works. In reality you'd use a different spout and index the documents to a proper backend. Look at the <a href="https://github.com/DigitalPebble/storm-crawler/tree/master/external">external modules</a> to see what's already available. Another limitation of this topology is that it will work in local mode only or on a single worker.</p>
 
  <p>You can run the topology in local mode with :</p>
- 
- <p><i>mvn clean compile exec:java -Dexec.mainClass=CrawlTopology -Dexec.args="-conf crawler-conf.yaml -local"</i></p>
 
- <p>or if you have already installed Apache Storm :</p>
-
- <p><i>storm jar target/<INSERTJARNAMEHERE>.jar CrawlTopology -conf crawler-conf.yaml -local</i></p>
+ <p><i>storm jar target/_INSERTJARNAMEHERE_.jar CrawlTopology -conf crawler-conf.yaml -local</i></p>
  
  <br>
  
