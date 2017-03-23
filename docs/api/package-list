@@ -12,6 +12,7 @@ com.digitalpebble.stormcrawler.parse
 com.digitalpebble.stormcrawler.parse.filter
 com.digitalpebble.stormcrawler.persistence
 com.digitalpebble.stormcrawler.protocol
+com.digitalpebble.stormcrawler.protocol.file
 com.digitalpebble.stormcrawler.protocol.httpclient
 com.digitalpebble.stormcrawler.spout
 com.digitalpebble.stormcrawler.util
