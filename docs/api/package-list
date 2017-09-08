@@ -14,6 +14,7 @@ com.digitalpebble.stormcrawler.persistence
 com.digitalpebble.stormcrawler.protocol
 com.digitalpebble.stormcrawler.protocol.file
 com.digitalpebble.stormcrawler.protocol.httpclient
+com.digitalpebble.stormcrawler.protocol.okhttp
 com.digitalpebble.stormcrawler.protocol.selenium
 com.digitalpebble.stormcrawler.spout
 com.digitalpebble.stormcrawler.util
