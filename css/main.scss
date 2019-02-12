@@ -192,8 +192,10 @@ pre {
 	background: linear-gradient(to bottom,  rgba(247,247,247,1) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 	img {
-		max-width:150px;
+		max-height: 100%;  
+		max-width: 100%; 
 		margin:0 20px 40px 15px;
+		vertical-align: middle;
 	}
 	h2 {
 		border:0;
