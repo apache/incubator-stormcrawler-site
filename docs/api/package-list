@@ -7,6 +7,7 @@ com.digitalpebble.stormcrawler.filtering.host
 com.digitalpebble.stormcrawler.filtering.metadata
 com.digitalpebble.stormcrawler.filtering.regex
 com.digitalpebble.stormcrawler.filtering.robots
+com.digitalpebble.stormcrawler.filtering.sitemap
 com.digitalpebble.stormcrawler.indexing
 com.digitalpebble.stormcrawler.parse
 com.digitalpebble.stormcrawler.parse.filter
