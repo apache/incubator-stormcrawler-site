@@ -8,11 +8,11 @@ title: Getting started with StormCrawler
   <h1>Quickstart</h1>
   <br>
   <p>NOTE: These instructions assume that you have <a href="https://maven.apache.org/install.html">Apache Maven</a> installed.  
-  You will also need to install <a href="https://storm.apache.org/">Apache Storm</a> to run the crawler. The version of Storm to use must match the one defined in the pom.xml file of your topology. The major version of StormCrawler mirrors the one from Apache Storm, i.e whereas StormCrawler 1.x used Storm 1.2.3, the current version now requires Storm 2.4.0. Our Ansible-Storm repository contains resources to install Apache Storm using Ansible.</p>
+  You will also need to install <a href="https://storm.apache.org/">Apache Storm</a> to run the crawler. The version of Storm to use must match the one defined in the pom.xml file of your topology. The major version of StormCrawler mirrors the one from Apache Storm, i.e whereas StormCrawler 1.x used Storm 1.2.3, the current version now requires Storm 2.5.0. Our <a href="https://github.com/DigitalPebble/ansible-storm">Ansible-Storm</a> repository contains resources to install Apache Storm using Ansible.</p>
 
   <p>Once Storm is installed, the easiest way to get started is to generate a brand new StormCrawler project using :</p>
 
-  <p><i>mvn archetype:generate -DarchetypeGroupId=com.digitalpebble.stormcrawler -DarchetypeArtifactId=storm-crawler-archetype -DarchetypeVersion=2.8</i></p>
+  <p><i>mvn archetype:generate -DarchetypeGroupId=com.digitalpebble.stormcrawler -DarchetypeArtifactId=storm-crawler-archetype -DarchetypeVersion=2.9</i></p>
   
   <p>You'll be asked to enter a groupId (e.g. <i>com.mycompany.crawler</i>), an artefactId (e.g. <i>stormcrawler</i>), a version and package name.</p>
 
