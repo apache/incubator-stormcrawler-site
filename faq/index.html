@@ -8,15 +8,15 @@ slug: faq
   <br>
   <p><strong>Q: Topologies? Spouts? Bolts? I am confused!</strong></p>
 
-  <p>A: Probably worth having a look at Apache Storm first. The <a href="http://storm.apache.org/releases/current/Tutorial.html">tutorial</a> and <a href="http://storm.apache.org/documentation/Concepts.html">concept</a> pages are good starting points.</p>
+  <p>A: Probably worth having a look at <a href="http://storm.apache.org/">Apache Storm® first. The <a href="http://storm.apache.org/releases/current/Tutorial.html">tutorial</a> and <a href="http://storm.apache.org/documentation/Concepts.html">concept</a> pages are good starting points.</p>
 
-  <p><strong>Q: Do I need a Storm cluster to run StormCrawler?</strong></p>
+  <p><strong>Q: Do I need an Apache Storm® cluster to run StormCrawler?</strong></p>
 
   <p>A: No. It can run in local mode and will just use the Storm libraries as dependencies. It makes sense to install Storm in pseudo-distributed mode though so that you can use its UI to monitor the topologies.</p>
 
-  <p><strong>Q: Why Apache Storm?</strong></p>
+  <p><strong>Q: Why Apache Storm®?</strong></p>
 
-  <p>A: Apache Storm is an elegant framework, with simple concepts, which provides a solid platform for distributed stream processing. It gives us fault tolerance and guaranteed data processing out of the box. The project is also very dynamic and backed by a thriving community. Last but not least it is under ASF 2.0 license.</p>
+  <p>A: Apache Storm® is an elegant framework, with simple concepts, which provides a solid platform for distributed stream processing. It gives us fault tolerance and guaranteed data processing out of the box. The project is also very dynamic and backed by a thriving community. Last but not least it is under ASF 2.0 license.</p>
 
   <p id="howfast"><strong>Q: How fast is StormCrawler?</strong></p>
 
@@ -24,15 +24,15 @@ slug: faq
 
   <p><strong>Q: Speaking of which, why should I use it instead of, say, Apache Nutch?</strong></p>
 
-  <p>A: This <a href="http://digitalpebble.blogspot.co.uk/2015/09/index-web-with-aws-cloudsearch.html">tutorial</a> on using Nutch and SC for indexing with Cloudsearch give you some idea of how they compare in their methodology and performance. 
+  <p>A: This <a href="http://digitalpebble.blogspot.co.uk/2015/09/index-web-with-aws-cloudsearch.html">tutorial</a> on using Apache Nutch® and SC for indexing with Cloudsearch give you some idea of how they compare in their methodology and performance. 
   We also ran a comparative <a href="http://digitalpebble.blogspot.co.uk/2017/01/the-battle-of-crawlers-apache-nutch-vs.html">benchmark</a> on a larger crawl.</p>
   <p>In a nutshell (pardon the pun), Nutch proceeds by batch steps where it selects the URLs to fetch, fetches them, parses them then update it database with the new info about the URLs it just processed and adds the newly discovered URLs. The generate and update steps take longer and longer as the crawl grows and the resources are used unevenly : when fetching there is little CPU or disk used whereas when doing all the other activities, you are not fetching anything at all, which is a waste of time and bandwidth.</p>
   <p>StormCrawler proceeds differently and does everything at the same time, hence optimising the physical resources of the cluster, but can potentially accomodate more use cases, e.g. when URLs naturally come as streams or when low latency is a must. URLs also get indexed as they are fetched and not as a batch. On a more subjective note and apart from being potentially more efficient, StormCrawler is more modern, easier to understand and build, nicer to use, more versatile and more actively maintained (but this is just my opinion and I am of course completely biased).</p>
-  <p>Apache Nutch is a great tool though, which we used for years with many of our customers at DigitalPebble, and it can also do things that StormCrawler cannot currently do out of the box like deduplicating or advanced scoring like PageRank.</p>
+  <p>Apache Nutch® is a great tool though, which we used for years with many of our customers at DigitalPebble, and it can also do things that StormCrawler cannot currently do out of the box like deduplicating or advanced scoring like PageRank.</p>
 
   <p><strong>Q: Do I need some sort of external storage? And if so, then what?</strong></p>
 
-  <p>A: Yes, you'll need to store the URLs to fetch somewhere. The type of the storage to use depends on the nature of your crawl. If your crawl is not recursive i.e. you just want to process specific pages and/or won't discover new pages through more than one path, then you could use messaging queues like <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://aws.amazon.com/sqs/">AWS SQS</a> or <a href="http://kafka.apache.org">Apache Kafka</a>. All you'll need is a Spout implementation that can read from them and generate Tuples for the crawl topology. Luckily there are many existing resources you can leverage. You might even find that the <a href="https://github.com/DigitalPebble/storm-crawler/blob/master/core/src/main/java/com/digitalpebble/storm/crawler/spout/FileSpout.java">FileSpout</a> is all you need. An important consideration with queues is that you might want to bucket the URLs to fetch per host / domain or IP into separate queues and have one instance of the Spout per queue. This way you'll get a good diversity of URLs down the topology and optimal performance.</p>
+  <p>A: Yes, you'll need to store the URLs to fetch somewhere. The type of the storage to use depends on the nature of your crawl. If your crawl is not recursive i.e. you just want to process specific pages and/or won't discover new pages through more than one path, then you could use messaging queues like <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://aws.amazon.com/sqs/">AWS SQS</a> or <a href="http://kafka.apache.org">Apache Kafka®</a>. All you'll need is a Spout implementation that can read from them and generate Tuples for the crawl topology. Luckily there are many existing resources you can leverage. You might even find that the <a href="https://github.com/DigitalPebble/storm-crawler/blob/master/core/src/main/java/com/digitalpebble/storm/crawler/spout/FileSpout.java">FileSpout</a> is all you need. An important consideration with queues is that you might want to bucket the URLs to fetch per host / domain or IP into separate queues and have one instance of the Spout per queue. This way you'll get a good diversity of URLs down the topology and optimal performance.</p>
   <p>If your crawl is recursive and there is a possibility that URLs which are already known are discovered multiple times, then a queue won't help as it would add the same URL to the queue every time it is discovered. This would be very inefficient. Instead you should use a storage where the keys are unique, like for instance a relational database. StormCrawler has several resources you can use in the <a href="https://github.com/DigitalPebble/storm-crawler/tree/master/external">external modules</a> such as one for SOLR, Elasticsearch or SQL.</p>
   <p>The advantage of using StormCrawler is that is it both modular and flexible. You can plug it to pretty much any storage you want.</p>
 
