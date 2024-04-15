@@ -1,0 +1,156 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,600,300italic,600italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased; }
+
+.row, .site-header__wrap, .site-nav ul, .page-title h1 {
+  max-width: 900px;
+  margin: 0 auto; }
+
+.row-col, .page-title h1 {
+  padding: 0 40px; }
+
+.col {
+  padding: 0 40px;
+  float: left; }
+
+.col--half {
+  width: 50%; }
+
+.clear, .row:after, .site-header__wrap:after, .site-nav ul:after, .page-title h1:after, .site-header:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+body {
+  background: #fff;
+  color: #000;
+  font: normal 15px/23px "ubuntu",sans-serif; }
+
+a {
+  color: #BE6551;
+  text-decoration: none; }
+
+p {
+  text-align: justify; }
+
+.site-header {
+  background: #fff;
+  text-align: center; }
+
+.site-header__logo {
+  margin: 30px auto;
+  width: 100%; }
+  .site-header__logo img {
+    max-height: 200px;
+    max-width: 100%; }
+
+.site-nav {
+  background: #000;
+  font-size: 0;
+  text-align: center;
+  margin: 0 0 40px 0; }
+  .site-nav a {
+    color: #fff; }
+  .site-nav li {
+    display: inline-block;
+    border-right: solid 1px rgba(255, 255, 255, 0.25); }
+    .site-nav li:first-child {
+      border-left: solid 1px rgba(255, 255, 255, 0.25); }
+  .site-nav a {
+    display: block;
+    padding: 9px 30px;
+    font-size: 15px; }
+    @media screen and (max-width: 900px) {
+      .site-nav a {
+        padding: 9px 15px; } }
+
+.home .site-nav li:nth-child(1) a {
+  background: #BE6551; }
+
+.getting-started .site-nav li:nth-child(4) a {
+  background: #BE6551; }
+
+.docs .site-nav li:nth-child(5) a {
+  background: #BE6551; }
+
+.faq .site-nav li:nth-child(6) a {
+  background: #BE6551; }
+
+.support .site-nav li:nth-child(7) a {
+  background: #BE6551; }
+
+main h1, main h2, main h3 {
+  line-height: 1.5em;
+  font-weight: bold; }
+main h1 {
+  font-size: 1.5rem; }
+main h2 {
+  font-size: 1.25rem;
+  margin: 0 0 30px 0;
+  border-bottom: solid 1px #ddd;
+  padding: 0 0 5px 0; }
+main p {
+  margin: 0 0 30px 0; }
+main ul, main ol {
+  margin: 0 0 30px 18px; }
+
+.page-title {
+  background: #BE6551;
+  color: #fff;
+  padding: 30px 0;
+  margin: -40px 0 40px 0;
+  text-align: center; }
+
+pre {
+  margin: 0 0 30px 0;
+  background: #e5e5e5;
+  padding: 15px 20px;
+  overflow: scroll;
+  font-family: "ubuntu mono",monospaced; }
+
+.used-by-panel {
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  margin: 20px 0 60px 0;
+  padding: 30px 30px 0 30px;
+  border-radius: 5px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7f7f7+0,ffffff+100 */
+  background: #f7f7f7;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #f7f7f7 0%, white 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f7f7f7 0%, white 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f7f7f7 0%, white 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ffffff',GradientType=0 );
+  /* IE6-9 */ }
+  .used-by-panel img {
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 20px 40px 15px;
+    vertical-align: middle; }
+  .used-by-panel h2 {
+    border: 0;
+    color: #000; }
+
+.github-info {
+  text-align: center;
+  background: #BE6551;
+  padding: 20px 0 15px; }
+  .github-info * {
+    text-align: center; }
+
+.site-footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0; }
+  .site-footer a {
+    color: #fff;
+    text-decoration: underline; }
