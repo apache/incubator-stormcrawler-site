@@ -14,7 +14,13 @@ docker compose up local
 ```
 
 
-
 ## Deployment
 
 This website uses the typical ASF layout. The actual website is found on `asf-site`. Any changes need to be pushed to this branch.
+You can run
+
+```bash
+docker compose up build
+```
+
+which will create a folder `_site`. This is the content, which needs to be copied ofter to the `asf-site` branch.
