@@ -1,3 +1,5 @@
+# https://cwiki.apache.org/confluence/display/INFRA/Git+-+.asf.yaml+features
+
 notifications:
   commits: commits@stormcrawler.apache.org
   issues: dev@stormcrawler.apache.org
@@ -6,3 +8,15 @@ notifications:
 publish:
   profile: ~
   whoami: asf-site
+
+github:
+  description: "Source for the Apache StormCrawler web site"
+  homepage: https://stormcrawler.apache.org/
+  features:
+    # Enable wiki for documentation
+    wiki: true
+    # Enable issue management
+    issues: true
+    # Enable projects for project management boards
+    projects: false
+   
