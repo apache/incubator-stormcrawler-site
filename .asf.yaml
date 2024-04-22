@@ -10,7 +10,7 @@ publish:
   whoami: asf-site
 
 github:
-  description: "Source for the Apache Apache StormCrawler (Incubating) web site"
+  description: "Source for the Apache StormCrawler (Incubating) web site"
   homepage: https://stormcrawler.apache.org/
   features:
     # Enable wiki for documentation
