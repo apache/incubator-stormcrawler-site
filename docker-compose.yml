@@ -6,7 +6,7 @@ services:
       - .:/srv/jekyll
     ports:
       - "4000:4000"
-    command: jekyll serve --watch --force_polling -config config-local.yml
+    command: jekyll serve --watch --force_polling -config _config-local.yml
 
   build:
     image: jekyll/jekyll:latest
