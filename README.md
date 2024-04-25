@@ -24,4 +24,5 @@ You can run
 docker compose up build
 ```
 
-which will create a folder `_site`. This is the content, which needs to be copied afterwards to the `asf-site` branch.
+which will create a folder `_site`. This is the content, which needs to be copied after wards to the `asf-site` branch.
+If you wish to see a preview for your branch, you can use `asf-staging` to see a copy hosted under: https://stormcrawler.staged.apache.org/
