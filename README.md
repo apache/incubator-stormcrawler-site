@@ -26,3 +26,8 @@ docker compose up build
 
 which will create a folder `_site`. This is the content, which needs to be copied after wards to the `asf-site` branch.
 If you wish to see a preview for your branch, you can use `asf-staging` to see a copy hosted under: https://stormcrawler.staged.apache.org/
+
+### Build with GitHub actions
+
+The website is automatically build on a push to `main` and any changes are pushed to the `asf-site` branch.
+A preview is available via https://stormcrawler.staged.apache.org/ if you go to the GitHub Actions tab and trigger a manual staging deploy action.  
