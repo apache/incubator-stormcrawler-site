@@ -14,13 +14,9 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-name: Publish website
+name: Publish staging website
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: [ "main" ]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -42,20 +38,20 @@ jobs:
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
-      - name: 'Checkout asf-site'
+      - name: 'Checkout asf-staging'
         uses: actions/checkout@v4
         with:
           repository: 'apache/incubator-stormcrawler-site'
-          ref: 'asf-site'
-          path: 'asf-site'
+          ref: 'asf-staging'
+          path: 'asf-staging'
 
       - name: 'Copy build to site repo'
         run: |
-          rsync -avP --delete --exclude .git --exclude docker-compose.yml --exclude README.md _site/. ./asf-site
+          rsync -avP --delete --exclude .git --exclude docker-compose.yml --exclude README.md _site/. ./asf-staging
         shell: bash
 
       - name: 'commit site'
-        working-directory: ./asf-site
+        working-directory: ./asf-staging
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
