@@ -6,3 +6,7 @@ notifications:
 publish:
   profile: ~
   whoami: asf-site
+
+staging:
+  profile: ~
+  whoami:  asf-staging
