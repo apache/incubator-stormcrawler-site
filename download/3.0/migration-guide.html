@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Migration Guide</title>
+  <meta name="description" content="Apache StormCrawler (Incubating) is collection of resources for building low-latency, scalable web crawlers on Apache Storm
+">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://stormcrawler.apache.org/download/3.0/migration-guide.html">
+  <link rel="alternate" type="application/rss+xml" title="Apache StormCrawler (Incubating)" href="https://stormcrawler.apache.org/feed.xml">
+  <link rel="icon" type="/image/png" href="/img/favicon.png" />
+</head>
+
+
+  <body class="migration-guide">
+
+    <header class="site-header">
+  <div class="site-header__wrap">
+    <div class="site-header__logo">
+      <a href="/"><img src="/img/incubator_logo.png" alt="Apache StormCrawler (Incubating)"></a>
+    </div>
+  </div>
+</header>
+<nav class="site-nav">
+  <ul>
+    <li><a href="/index.html">Home</a>
+    <li><a href="/download/index.html">Download</a>
+    <li><a href="https://github.com/apache/incubator-stormcrawler">Source Code</a></li>
+    <li><a href="/getting-started/">Getting Started</a></li>
+    <li><a href="https://javadoc.io/doc/org.apache.stormcrawler/stormcrawler-core/3.0/index.html">JavaDocs</a>
+    <li><a href="/faq/">FAQ</a></li>
+    <li><a href="/support/">Support</a></li>
+  </ul>
+</nav>
+
+
+      <main class="main-content">    
+        <div class="row row-col">
+<h1>Apache StormCrawler (Incubating) Migration Guide</h1>
+
+<h2>Introduction</h2>
+<p>This guide provides step-by-step instructions for migrating your project from older versions of StormCrawler to the new version under the Apache umbrella. Key changes include updates to the group and artifact IDs, as well as the removal of the Elasticsearch module.</p>
+
+<h2>Group ID and Artifact ID Changes</h2>
+
+<h3>Group ID</h3>
+<p>The group ID has changed from <code>com.digitalpebble.stormcrawler</code> to <code>org.apache.stormcrawler</code>. This change reflects the project's transition to the Apache Software Foundation.</p>
+
+<h3>Artifact ID</h3>
+<p>The artifact ID has changed from <code>storm-crawler</code> to <code>stormcrawler</code>.</p>
+
+<h3>Maven Configuration</h3>
+<p>Update your <code>pom.xml</code> to reflect these changes. Below is an example of the updated dependency configuration:</p>
+
+<div class="code-block">
+    <p><strong>Old Configuration:</strong></p>
+    <pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.digitalpebble.stormcrawler&lt;/groupId&gt;
+    &lt;artifactId&gt;storm-crawler&lt;/artifactId&gt;
+    &lt;version&gt;OLD_VERSION&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+
+<div class="code-block">
+    <p><strong>New Configuration:</strong></p>
+    <pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.stormcrawler&lt;/groupId&gt;
+    &lt;artifactId&gt;stormcrawler&lt;/artifactId&gt;
+    &lt;version&gt;NEW_VERSION&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+
+<p>Replace <code>OLD_VERSION</code> with the version you are currently using and <code>NEW_VERSION</code> with the latest version of Apache StormCrawler.</p>
+
+<h2>Removal of Elasticsearch Module</h2>
+<p>The Elasticsearch module has been removed in the latest version of StormCrawler. You have two options to handle this change:</p>
+<ol>
+    <li><strong>Fork the Elasticsearch Module:</strong> You can fork the Elasticsearch module from the older version of StormCrawler and maintain it independently.</li>
+    <li><strong>Migrate to OpenSearch Module:</strong> Alternatively, you can migrate your code to use the OpenSearch module provided by Apache StormCrawler.</li>
+</ol>
+
+<h3>Forking the Elasticsearch Module</h3>
+<ol>
+    <li>Clone the repository containing the last version of StormCrawler that includes the Elasticsearch module.</li>
+    <li>Copy the Elasticsearch module into your project's repository.</li>
+    <li>Update your project's dependencies to include this local version of the Elasticsearch module.</li>
+</ol>
+
+<h3>Migrating to OpenSearch Module</h3>
+<p>If you choose to migrate to the OpenSearch module, you will need to update your code to use the new module. Here are the steps:</p>
+<ol>
+    <li>Add the OpenSearch dependency to your <code>pom.xml</code>:</li>
+</ol>
+
+<div class="code-block">
+        <pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.stormcrawler&lt;/groupId&gt;
+    &lt;artifactId&gt;stormcrawler-opensearch&lt;/artifactId&gt;
+    &lt;version&gt;NEW_VERSION&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+
+<ol start="2">
+    <li>Update your code to replace any references to the Elasticsearch module with the corresponding OpenSearch module classes and methods. The API for OpenSearch is similar to Elasticsearch, so the changes should be straightforward.</li>
+    <li>Test your application thoroughly to ensure that the migration does not introduce any issues.</li>
+</ol>
+
+<h2>Summary</h2>
+<p>By following the steps outlined in this guide, you should be able to migrate your project to the latest version of Apache StormCrawler with minimal effort. Ensure you update your Maven dependencies and handle the removal of the Elasticsearch module by either forking it or migrating to the OpenSearch module.</p>
+<p>For any further assistance, reach out to the community via mailing lists or GitHub discussions.</p>
+</div>
+      </main>
+
+    <footer class="site-footer">
+	<img src="/img/incubator_feather_egg_logo_bw_crop.png" alt="Apache Incubator Logo" width="500"><br/>
+
+	Apache StormCrawler is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
+<br/> <br/>
+	&copy; 2024 <a href="https://www.apache.org/">The Apache Software Foundation</a><br/><br/>
+Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>. <br/> Apache StormCrawler, StormCrawler, the Apache feather logo are trademarks of The Apache Software Foundation. <br/> All other marks mentioned may be trademarks or registered trademarks of their respective owners. <br/><br/>
+	<a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy Policy</a> | <a href="https://www.apache.org/security/">Security</a> | <a href="https://www.apache.org/foundation/sponsorship">Sponsorship</a> | <a href="https://www.apache.org/foundation/sponsors">Sponsors</a><br/><br/>
+	<div class="footer-widget">
+		<a class="acevent" data-format="wide" data-mode="dark"></a>
+	</div>
+</footer>
+
+
+  </body>
+
+  <script src="https://www.apachecon.com/event-images/snippet.js"></script>
+
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDoNotTrack", true]);
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://analytics.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '58']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
+</html>
