@@ -6,7 +6,6 @@ notifications:
   pullrequests: dev@stormcrawler.apache.org
 
 publish:
-  profile: ~
   whoami: asf-site
 
 github:
