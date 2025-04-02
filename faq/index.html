@@ -30,13 +30,14 @@
   <ul>
     <li><a href="/index.html">Home</a>
     <li><a href="/download/index.html">Download</a>
-    <li><a href="https://github.com/apache/incubator-stormcrawler">Source Code</a></li>
     <li><a href="/getting-started/">Getting Started</a></li>
+    <li><a href="/contribute/">Contribute</a></li>
     <li><a href="https://javadoc.io/doc/org.apache.stormcrawler/stormcrawler-core/3.3.0/index.html">JavaDocs</a>
     <li><a href="/faq/">FAQ</a></li>
     <li><a href="/support/">Support</a></li>
   </ul>
 </nav>
+<span id="forkongithub"><a href="https://github.com/apache/incubator-stormcrawler">Fork me on GitHub</a></span>
 
 
       <main class="main-content">    
@@ -69,12 +70,12 @@
 
   <p><strong>Q: Do I need some sort of external storage? And if so, then what?</strong></p>
 
-  <p>A: Yes, you'll need to store the URLs to fetch somewhere. The type of the storage to use depends on the nature of your crawl. If your crawl is not recursive i.e. you just want to process specific pages and/or won't discover new pages through more than one path, then you could use messaging queues like <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://aws.amazon.com/sqs/">AWS SQS</a> or <a href="http://kafka.apache.org">Apache Kafka®</a>. All you'll need is a Spout implementation that can read from them and generate Tuples for the crawl topology. Luckily there are many existing resources you can leverage. You might even find that the <a href="https://github.com/DigitalPebble/storm-crawler/blob/master/core/src/main/java/com/digitalpebble/storm/crawler/spout/FileSpout.java">FileSpout</a> is all you need. An important consideration with queues is that you might want to bucket the URLs to fetch per host / domain or IP into separate queues and have one instance of the Spout per queue. This way you'll get a good diversity of URLs down the topology and optimal performance.</p>
-  <p>If your crawl is recursive and there is a possibility that URLs which are already known are discovered multiple times, then a queue won't help as it would add the same URL to the queue every time it is discovered. This would be very inefficient. Instead you should use a storage where the keys are unique, like for instance a relational database. Apache StormCrawler (Incubating) has several resources you can use in the <a href="https://github.com/DigitalPebble/storm-crawler/tree/master/external">external modules</a> such as one for SOLR, Elasticsearch or SQL.</p>
+  <p>A: Yes, you'll need to store the URLs to fetch somewhere. The type of the storage to use depends on the nature of your crawl. If your crawl is not recursive i.e. you just want to process specific pages and/or won't discover new pages through more than one path, then you could use messaging queues like <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://aws.amazon.com/sqs/">AWS SQS</a> or <a href="http://kafka.apache.org">Apache Kafka®</a>. All you'll need is a Spout implementation that can read from them and generate Tuples for the crawl topology. Luckily there are many existing resources you can leverage. You might even find that the <a href="https://github.com/apache/incubator-stormcrawler/blob/master/core/src/main/java/com/digitalpebble/storm/crawler/spout/FileSpout.java">FileSpout</a> is all you need. An important consideration with queues is that you might want to bucket the URLs to fetch per host / domain or IP into separate queues and have one instance of the Spout per queue. This way you'll get a good diversity of URLs down the topology and optimal performance.</p>
+  <p>If your crawl is recursive and there is a possibility that URLs which are already known are discovered multiple times, then a queue won't help as it would add the same URL to the queue every time it is discovered. This would be very inefficient. Instead you should use a storage where the keys are unique, like for instance a relational database. Apache StormCrawler (Incubating) has several resources you can use in the <a href="https://github.com/apache/incubator-stormcrawler/tree/master/external">external modules</a> such as one for SOLR, Elasticsearch or SQL.</p>
   <p>The advantage of using Apache StormCrawler (Incubating) is that is it both modular and flexible. You can plug it to pretty much any storage you want.</p>
 
   <p><strong>Q: Is Apache StormCrawler (Incubating) polite?</strong></p>
-  <p>A: The <a href="http://www.robotstxt.org/">robots.txt</a> protocol is supported and the fetchers are configured to have a <a href="https://github.com/DigitalPebble/storm-crawler/blob/master/core/src/main/resources/crawler-default.yaml#L6">delay</a> between calls to the same hostname or domain. However like with every tool, it is down to how people use it.</p>
+  <p>A: The <a href="http://www.robotstxt.org/">robots.txt</a> protocol is supported and the fetchers are configured to have a <a href="https://github.com/apache/incubator-stormcrawler/blob/master/core/src/main/resources/crawler-default.yaml#L6">delay</a> between calls to the same hostname or domain. However like with every tool, it is down to how people use it.</p>
 
   <p><strong>Q: When do I know when a crawl is finished?</strong></p>
   <p>A: This is actually not straightforward. Storm topologies are designed to run continuously and there is no standard mechanism to determine when they should be terminated. Unless you implement a bespoke way of terminating the topology, you'll need to keep an eye on the progress of the crawl and stop it manually.</p>
