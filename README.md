@@ -1,4 +1,4 @@
-# Apache StormCrawler (Incubating) Website
+# Apache StormCrawler Website
 
 ## How to build?
 
